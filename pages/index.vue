@@ -1,0 +1,14 @@
+<template>
+  <Main>
+    <template #form>
+      <QueryForm />
+    </template>
+  </Main>
+</template>
+
+<script setup lang="ts">
+
+</script>
+
+<style scoped>
+</style>
