@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@prisma/client": "^5.7.1",
+    "googleapis": "^133.0.0",
     "primevue": "^3.49.1"
   }
 }

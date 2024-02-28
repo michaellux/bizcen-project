@@ -17,18 +17,26 @@
       <label for="applicationText">Текст заявки</label>
     </FloatLabel>
     <p-button label="Отправить заявку" class="self-center" @click="submitApplication" />
-    </а>
   </form>
 </template>
 <script setup>
 import { ref } from 'vue'
-
 const name = ref('')
 const surname = ref('')
 const phone = ref('')
 const applicationText = ref('')
-
-const submitApplication = () => {
+const submitApplication = async () => {
+  try {
+    const spreadsheetId = await createSheet()
+    const range = 'Sheet1!A1:D1' // Укажите диапазон, куда будут добавлены данные
+    const values = [name.value, surname.value, phone.value, applicationText.value]
+    await appendData(spreadsheetId, range, values)
+    alert('Данные успешно отправлены!')
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Ошибка при отправке данных:', error)
+    alert('Произошла ошибка при отправке данных.')
+  }
 }
 </script>
 
